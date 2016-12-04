@@ -15,11 +15,11 @@ TimeoutStartSec=0
 ExecStartPre=-/usr/bin/docker kill %p-%i
 ExecStartPre=-/usr/bin/docker rm %p-%i
 ExecStartPre=-/usr/bin/etcdctl mkdir /services/todo
-ExecStartPre=-/usr/bin/docker pull rosskukulinski/nginx-proxy
+ExecStartPre=-/usr/bin/docker pull marley/coreos-nginx-proxy
 ExecStart=/usr/bin/docker run --name %p-%i \
       -h %H \
       -p ${COREOS_PUBLIC_IP}:80:80 \
-      rosskukulinski/nginx-proxy
+      marley/coreos-nginx-proxy
 ExecStop=-/usr/bin/docker kill %p-%i
 ExecStop=-/usr/bin/docker rm %p-%i
 
