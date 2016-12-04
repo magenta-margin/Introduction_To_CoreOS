@@ -13,7 +13,7 @@ Restart=always
 TimeoutStartSec=0
 ExecStartPre=-/usr/bin/docker kill %p-%i
 ExecStartPre=-/usr/bin/docker rm %p-%i
-ExecStartPre=/usr/bin/docker marley/coreos-todo-angular-express
+ExecStartPre=/usr/bin/docker pull marley/coreos-todo-angular-express
 ExecStart=/usr/bin/docker run --name %p-%i \
       -h %H \
       -p ${COREOS_PUBLIC_IPV4}:3000:3000 \
