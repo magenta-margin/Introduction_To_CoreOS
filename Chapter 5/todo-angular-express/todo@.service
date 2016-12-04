@@ -13,12 +13,12 @@ Restart=always
 TimeoutStartSec=0
 ExecStartPre=-/usr/bin/docker kill %p-%i
 ExecStartPre=-/usr/bin/docker rm %p-%i
-ExecStartPre=/usr/bin/docker pull rosskukulinski/angular-todo-rethinkdb
+ExecStartPre=/usr/bin/docker marley/coreos-todo-angular-express
 ExecStart=/usr/bin/docker run --name %p-%i \
       -h %H \
       -p ${COREOS_PUBLIC_IPV4}:3000:3000 \
       -e INSTANCE=%p-%i \
-      rosskukulinski/angular-todo-rethinkdb
+      marley/coreos-todo-angular-express
 ExecStop=-/usr/bin/docker kill %p-%i
 ExecStop=-/usr/bin/docker rm %p-%i
 
